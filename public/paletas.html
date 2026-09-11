@@ -19,19 +19,20 @@
       <button data-palette="azul" aria-pressed="true" style="background:#142e38;color:#f1e8d8"><strong>Azul profundo · escolhida</strong><small>#142E38 · náutica e envolvente</small></button>
       <button data-palette="original" aria-pressed="false" style="background:#f7f7ef"><strong>Original</strong><small>#F7F7EF · para comparar</small></button>
     </div>
-    <div class="toolbar"><span id="status" role="status">Prévia: azul profundo</span><a id="open" href="/?paleta=azul" target="_blank" rel="noopener">Abrir site nesta cor ↗</a></div>
+    <div class="toolbar"><span id="status" role="status">Prévia: azul profundo</span><a id="open" href="./?paleta=azul" target="_blank" rel="noopener">Abrir site nesta cor ↗</a></div>
   </header>
-  <div class="preview"><iframe title="Prévia móvel do site Viva La Vida" src="/?paleta=azul"></iframe></div>
+  <div class="preview"><iframe title="Prévia móvel do site Viva La Vida" src="./?paleta=azul"></iframe></div>
   <script>
     const frame=document.querySelector('iframe');
     document.querySelectorAll('button[data-palette]').forEach(button=>button.addEventListener('click',()=>{
       const palette=button.dataset.palette;
       document.querySelectorAll('button[data-palette]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
-      document.querySelector('#open').href=palette?'/?paleta='+palette:'/';
+      document.querySelector('#open').href=palette?'./?paleta='+palette:'./';
       document.querySelector('#status').textContent='Prévia: '+button.querySelector('strong').textContent;
       if(frame.contentDocument) { if(palette)frame.contentDocument.documentElement.dataset.palette=palette;else delete frame.contentDocument.documentElement.dataset.palette; }
     }));
   </script>
 </body>
 </html>
+
 

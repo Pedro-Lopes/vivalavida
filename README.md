@@ -47,3 +47,9 @@ Build TypeScript/Vite e lint aprovados. Fluxos verificados em navegador: abas co
 
 
 # vivalavida
+
+## Publicação no GitHub Pages
+
+Site: https://pedro-lopes.github.io/vivalavida/
+
+O workflow `.github/workflows/deploy.yml` instala as dependências, executa lint e build e publica `dist` a cada push na branch `main`. O Vite usa `/vivalavida/` no build; o servidor de desenvolvimento continua na raiz. Imagens respeitam `import.meta.env.BASE_URL`.

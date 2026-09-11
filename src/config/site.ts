@@ -1,4 +1,4 @@
-// ============================================================
+﻿// ============================================================
 // ARQUIVO DE CONFIGURAÇÃO CENTRAL — edite aqui antes de tudo
 // ============================================================
 
@@ -19,5 +19,6 @@ export const siteConfig = {
   location: 'Rio de Janeiro e Niterói, RJ',
   embarque: 'A confirmar',
 
-  siteUrl: 'https://vivalavida.com.br', // TODO: Substituir pela URL real
+  siteUrl: 'https://pedro-lopes.github.io/vivalavida/',
 } as const
+

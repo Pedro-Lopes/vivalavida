@@ -20,10 +20,10 @@ import { siteConfig } from './config/site'
 import './App.css'
 
 const photos = {
-  hero: '/images/rio.jpg',
-  boat: '/images/boat.jpg',
-  coast: '/images/coast.jpg',
-  ocean: '/images/ocean.jpg',
+  hero: `${import.meta.env.BASE_URL}images/rio.jpg`,
+  boat: `${import.meta.env.BASE_URL}images/boat.jpg`,
+  coast: `${import.meta.env.BASE_URL}images/coast.jpg`,
+  ocean: `${import.meta.env.BASE_URL}images/ocean.jpg`,
 }
 const imageSet = (photo: string) =>
   `${photo.replace('.jpg', '-800.webp')} 800w, ${photo.replace('.jpg', '-1600.webp')} 1600w`
