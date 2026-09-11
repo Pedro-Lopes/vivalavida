@@ -1314,3 +1314,17 @@ h2 {
     animation: none;
   }
 }
+
+/* Prévia de fotografia inteira: preserva a composição e coloca a legenda abaixo. */
+.hero-photo-whole { height: auto; background: var(--surface); }
+.hero-photo-whole > img { height: auto; width: 100%; object-fit: contain; animation: none; }
+.hero-photo-whole .hero-photo-shade { display: none; }
+.hero-photo-whole .photo-caption { position: static; padding: 24px 90px 28px 26px; color: var(--ink); font-size: 32px; }
+.hero-photo-whole .photo-caption em { font-size: 38px; }
+.hero-photo-whole .round-explore { bottom: 28px; color: var(--ink); border-color: var(--line); }
+.hero-photo-whole .photo-coordinate { display: none; }
+.hero-photo-whole .photo-location { font-size: 8px; top: 14px; left: 14px; max-width: calc(100% - 28px); }
+@media (max-width: 700px) {
+  .hero-photo-whole .photo-caption { font-size: 28px; padding-left: 20px; }
+  .hero-photo-whole .photo-caption em { font-size: 34px; }
+}

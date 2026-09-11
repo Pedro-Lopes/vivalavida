@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#142e38">
+  <title>Escolha da foto · Viva La Vida</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#142e38;color:#f1e8d8;font-family:system-ui,sans-serif}main{max-width:1000px;margin:auto;padding:24px 18px}h1{font-size:26px;letter-spacing:-1px;line-height:1.15;margin:0 0 12px}p{color:#becdcd;font-size:14px;line-height:1.6;margin:0 0 20px}.options{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}button{cursor:pointer;font:inherit;color:inherit}button.photo{background:#1d3b46;padding:0;border:1px solid #becdcd55;border-radius:10px;overflow:hidden;text-align:left;min-width:0}.photo[aria-pressed=true]{outline:2px solid #e6d2ad;outline-offset:3px}.photo img{width:100%;height:88px;object-fit:cover;display:block}.photo span{display:block;padding:12px;font-size:13px;line-height:1.5}.photo small{display:block;color:#becdcd;font-size:11px;margin-top:4px}.settings{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin:22px 0 10px}.fit{display:flex;gap:8px}.fit button{min-height:46px;border:1px solid #becdcd55;background:transparent;border-radius:24px;padding:10px 16px;font-size:12px}.fit button[aria-pressed=true]{background:#e6d2ad;color:#142e38;border-color:#e6d2ad}a{color:#e6d2ad;font-size:13px;display:inline-flex;min-height:44px;align-items:center}#status{font-size:12px;margin:0 0 12px}.preview{max-width:430px;height:650px;margin:0 auto;border:1px solid #becdcd55;border-radius:16px;overflow:hidden;background:#142e38}iframe{display:block;width:100%;height:100%;border:0}details{margin-top:25px;color:#becdcd;font-size:12px;line-height:1.7}summary{min-height:44px;cursor:pointer}details a{font-size:12px;margin-right:18px}:focus-visible{outline:3px solid #e6d2ad;outline-offset:4px}@media(max-width:600px){main{padding:24px 14px}.options{grid-template-columns:1fr 1fr}.preview{height:540px;width:100%}.settings{align-items:flex-start}.settings>a{width:100%}.photo span{padding:10px}.fit{width:100%}.fit button{flex:1}.photo img{height:74px}h1{font-size:24px}}
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Um novo olhar para o seu passeio.</h1>
+    <p>Escolha a foto e veja como ela fica no celular. Em “Foto inteira”, a paisagem aparece sem cortes e a frase fica abaixo da imagem.</p>
+    <div class="options" aria-label="Fotos para a abertura">
+      <button class="photo" data-photo="atual" aria-pressed="true"><img src="./images/rio-800.webp" alt="Vista aérea do Pão de Açúcar"><span>01 · A atual, com respiro<small>A mesma paisagem, sem perder as laterais.</small></span></button>
+      <button class="photo" data-photo="mar" aria-pressed="false"><img src="./images/rio-mar-800.webp" alt="Barcos e montanhas na Baía de Guanabara"><span>02 · Rio visto da água<small>Céu azul, barcos e um horizonte aberto.</small></span></button>
+      <button class="photo" data-photo="entardecer" aria-pressed="false"><img src="./images/rio-entardecer-800.webp" alt="Barcos na baía ao pôr do sol"><span>03 · Fim de tarde na baía<small>Minha sugestão: luz quente e clima de passeio.</small></span></button>
+      <button class="photo" data-photo="oceano" aria-pressed="false"><img src="./images/ocean-800.webp" alt="Ondas e areia vistas de cima"><span>04 · Um mergulho no azul<small>Mar e textura. Fotografia ilustrativa.</small></span></button>
+    </div>
+    <div class="settings">
+      <div class="fit" aria-label="Enquadramento"><button data-fit="inteira" aria-pressed="true">Foto inteira</button><button data-fit="preencher" aria-pressed="false">Preencher o espaço</button></div>
+      <a id="open" href="./?foto=atual&amp;enquadramento=inteira#foto-abertura" target="_blank" rel="noopener">Abrir esta opção no site ↗</a>
+    </div>
+    <p id="status" role="status">Prévia: 01 · Foto inteira</p>
+    <div class="preview"><iframe title="Foto de abertura no site em tamanho de celular" src="./?foto=atual&amp;enquadramento=inteira#foto-abertura"></iframe></div>
+    <details><summary>Sobre as fotografias e esta comparação</summary>As opções são ilustrativas e não representam registros de passeios da Viva La Vida. A escolha nesta página é uma prévia; a abertura padrão do site continua como está. Fotos de banco Unsplash.
+      <div><a href="https://unsplash.com/photos/J6Tx67zdyu8" target="_blank" rel="noopener">Rio visto da água · Marcos Paulo Prado</a><a href="https://unsplash.com/photos/tavdin66SsE" target="_blank" rel="noopener">Fim de tarde · Pedro Gandra</a></div>
+    </details>
+  </main>
+  <script>
+    let photo='atual',fit='inteira';
+    const frame=document.querySelector('iframe');
+    function update(){
+      document.querySelectorAll('[data-photo]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.photo===photo)));
+      document.querySelectorAll('[data-fit]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.fit===fit)));
+      const url='./?foto='+photo+'&enquadramento='+fit+'#foto-abertura';
+      document.querySelector('#open').href=url;frame.src=url;
+      document.querySelector('#status').textContent='Prévia: '+document.querySelector('[data-photo="'+photo+'"]').innerText.split('\n')[0]+' · '+(fit==='inteira'?'Foto inteira':'Preencher o espaço');
+    }
+    document.querySelectorAll('[data-photo]').forEach(button=>button.addEventListener('click',()=>{photo=button.dataset.photo;update()}));
+    document.querySelectorAll('[data-fit]').forEach(button=>button.addEventListener('click',()=>{fit=button.dataset.fit;update()}));
+    frame.addEventListener('load',()=>{frame.contentDocument?.getElementById('foto-abertura')?.scrollIntoView({behavior:'instant',block:'start'})});
+  </script>
+</body>
+</html>

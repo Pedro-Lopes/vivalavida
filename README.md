@@ -53,3 +53,7 @@ Build TypeScript/Vite e lint aprovados. Fluxos verificados em navegador: abas co
 Site: https://pedro-lopes.github.io/vivalavida/
 
 O workflow `.github/workflows/deploy.yml` instala as dependências, executa lint e build e publica `dist` a cada push na branch `main`. O Vite usa `/vivalavida/` no build; o servidor de desenvolvimento continua na raiz. Imagens respeitam `import.meta.env.BASE_URL`.
+
+## Opções da imagem de abertura
+
+A comparação está em `imagens.html`, com foto inteira ou preenchimento do espaço. As opções não substituem a foto padrão até a escolha do proprietário. Os parâmetros `foto=atual|mar|entardecer|oceano` e `enquadramento=inteira|preencher` permitem compartilhar uma prévia. O modo inteiro conserva a proporção original e coloca a legenda abaixo da fotografia.

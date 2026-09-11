@@ -27,6 +27,17 @@ const photos = {
 }
 const imageSet = (photo: string) =>
   `${photo.replace('.jpg', '-800.webp')} 800w, ${photo.replace('.jpg', '-1600.webp')} 1600w`
+const heroOptions = {
+  atual: { image: 'rio', alt: 'Pão de Açúcar e Baía de Guanabara banhados pela luz do sol', location: 'RIO DE JANEIRO, BRASIL' },
+  mar: { image: 'rio-mar', alt: 'Pão de Açúcar e Morro da Urca com barcos na Baía de Guanabara', location: 'RIO DE JANEIRO, BRASIL' },
+  entardecer: { image: 'rio-entardecer', alt: 'Barcos na Baía de Guanabara ao pôr do sol, com o Corcovado ao fundo', location: 'BAÍA DE GUANABARA, RIO' },
+  oceano: { image: 'ocean', alt: 'Vista aérea das ondas chegando à areia de uma praia, imagem ilustrativa', location: 'O MAR TE ESPERA · IMAGEM ILUSTRATIVA' },
+}
+const imageParams = new URLSearchParams(window.location.search)
+const requestedPhoto = imageParams.get('foto')
+const heroOption = heroOptions[requestedPhoto && Object.hasOwn(heroOptions, requestedPhoto) ? requestedPhoto as keyof typeof heroOptions : 'atual']
+const heroSource = `${import.meta.env.BASE_URL}images/${heroOption.image}`
+const wholeHero = imageParams.get('enquadramento') === 'inteira'
 const navigation = [
   ['A experiência', '#experiencia'],
   ['Roteiros', '#roteiros'],
@@ -45,6 +56,14 @@ export default function App() {
   const plan = plans[planIndex]
   const today = new Date()
   const minDate = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`
+
+  useEffect(() => {
+    if (window.location.hash !== '#foto-abertura') return
+    const frame = requestAnimationFrame(() => {
+      document.getElementById('foto-abertura')?.scrollIntoView({ behavior: 'instant', block: 'start' })
+    })
+    return () => cancelAnimationFrame(frame)
+  }, [])
 
   useEffect(() => {
     let pastHero = false
@@ -163,17 +182,17 @@ export default function App() {
               </a>
             </div>
           </div>
-          <div className="hero-photo">
+          <div className={`hero-photo${wholeHero ? ' hero-photo-whole' : ''}`} id="foto-abertura">
             <img
-              src={photos.hero}
-              srcSet={imageSet(photos.hero)}
+              src={`${heroSource}-1600.webp`}
+              srcSet={`${heroSource}-800.webp 800w, ${heroSource}-1600.webp 1600w`}
               sizes="(max-width: 700px) 92vw, 94vw"
-              alt="Pão de Açúcar e Baía de Guanabara banhados pela luz do sol"
+              alt={heroOption.alt}
               fetchPriority="high"
             />
             <div className="hero-photo-shade" />
             <span className="photo-location">
-              <span /> RIO DE JANEIRO, BRASIL
+              <span /> {heroOption.location}
             </span>
             <p className="photo-caption">
               A vida acontece.

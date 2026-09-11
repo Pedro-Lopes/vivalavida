@@ -55,3 +55,10 @@ A página atual usa os arquivos abaixo. As referências anteriores acima corresp
 | `public/images/ocean.jpg` | https://images.unsplash.com/photo-1505118380757-91f5f5632de0 |
 
 São imagens ilustrativas; a embarcação da fotografia não representa a lancha da empresa. Substitua os arquivos e atualize as descrições alternativas ao inserir as fotos oficiais.
+
+## Alternativas para a abertura
+
+- `rio-mar-800.webp` e `rio-mar-1600.webp`: Marcos Paulo Prado, https://unsplash.com/photos/J6Tx67zdyu8 — fonte https://images.unsplash.com/photo-1583123483628-cdb29790ead8
+- `rio-entardecer-800.webp` e `rio-entardecer-1600.webp`: Pedro Gandra, https://unsplash.com/photos/tavdin66SsE — fonte https://images.unsplash.com/photo-1749086876868-f0e82fec562e
+
+Ambas as páginas indicam uso gratuito sob a licença Unsplash. As variantes preservam a proporção original, em WebP. A opção de oceano reutiliza a fotografia ilustrativa já creditada acima.
