@@ -170,7 +170,6 @@ export default function App() {
         <section className="hero-section" id="inicio">
           <div className="hero-header">
             <div className="hero-copy">
-              <p className="hero-subtitle">e uma cidade inteira para redescobrir.</p>
               <p className="eyebrow">
                 <span className="live-dot" /> MENOS ROTINA. MAIS HORIZONTE.
               </p>
