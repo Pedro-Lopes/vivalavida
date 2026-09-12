@@ -28,16 +28,18 @@ const photos = {
 const imageSet = (photo: string) =>
   `${photo.replace('.jpg', '-800.webp')} 800w, ${photo.replace('.jpg', '-1600.webp')} 1600w`
 const heroOptions = {
-  atual: { image: 'rio', alt: 'Pão de Açúcar e Baía de Guanabara banhados pela luz do sol', location: 'RIO DE JANEIRO, BRASIL' },
+  atual: { image: 'boat', alt: 'Lancha branca em mar azul com vegetação ao fundo', location: 'RIO DE JANEIRO, BRASIL' },
   mar: { image: 'rio-mar', alt: 'Pão de Açúcar e Morro da Urca com barcos na Baía de Guanabara', location: 'RIO DE JANEIRO, BRASIL' },
   entardecer: { image: 'rio-entardecer', alt: 'Barcos na Baía de Guanabara ao pôr do sol, com o Corcovado ao fundo', location: 'BAÍA DE GUANABARA, RIO' },
   oceano: { image: 'ocean', alt: 'Vista aérea das ondas chegando à areia de uma praia, imagem ilustrativa', location: 'O MAR TE ESPERA · IMAGEM ILUSTRATIVA' },
+  vegas: { image: 'vegas-reference', alt: 'Lancha Vegas 36 pés na Baía de Guanabara, foto de referência da Start Náutica', location: 'REFERÊNCIA · START NÁUTICA' },
 }
 const imageParams = new URLSearchParams(window.location.search)
 const requestedPhoto = imageParams.get('foto')
-const heroOption = heroOptions[requestedPhoto && Object.hasOwn(heroOptions, requestedPhoto) ? requestedPhoto as keyof typeof heroOptions : 'atual']
+const heroOption = heroOptions[requestedPhoto && Object.hasOwn(heroOptions, requestedPhoto) ? requestedPhoto as keyof typeof heroOptions : 'vegas']
 const heroSource = `${import.meta.env.BASE_URL}images/${heroOption.image}`
 const wholeHero = imageParams.get('enquadramento') === 'inteira'
+const isVegasHero = heroOption.image === 'vegas-reference'
 const navigation = [
   ['A experiência', '#experiencia'],
   ['Roteiros', '#roteiros'],
@@ -160,32 +162,24 @@ export default function App() {
       </header>
       <main id="conteudo">
         <section className="hero-section" id="inicio">
-          <div className="hero-heading">
-            <div>
+          <div className="hero-header">
+            <div className="hero-copy">
+              <p className="hero-subtitle">e uma cidade inteira para redescobrir.</p>
               <p className="eyebrow">
                 <span className="live-dot" /> MENOS ROTINA. MAIS HORIZONTE.
               </p>
               <h1>
-                O Rio fica ainda
-                <br />
-                mais bonito <em>do mar.</em>
+                mais bonito <em>do mar:</em>
               </h1>
             </div>
-            <div className="hero-intro">
-              <p>
-                Um dia de sol, a sua melhor companhia
-                <br className="desktop-break" /> e uma cidade inteira para
-                redescobrir.
-              </p>
-              <a className="text-link" href="#roteiros">
-                Encontre o seu passeio <ArrowUpRight size={20} />
-              </a>
-            </div>
+            <a className="hero-link" href="#roteiros">
+              Encontre o seu passeio <ArrowUpRight size={20} />
+            </a>
           </div>
-          <div className={`hero-photo${wholeHero ? ' hero-photo-whole' : ''}`} id="foto-abertura">
+          <div className={`hero-photo${wholeHero ? ' hero-photo-whole' : ''}${isVegasHero ? ' hero-photo-vegas' : ''}`} id="foto-abertura">
             <img
-              src={`${heroSource}-1600.webp`}
-              srcSet={`${heroSource}-800.webp 800w, ${heroSource}-1600.webp 1600w`}
+              src={isVegasHero ? `${heroSource}.jpg` : `${heroSource}-1600.webp`}
+              srcSet={isVegasHero ? undefined : `${heroSource}-800.webp 800w, ${heroSource}-1600.webp 1600w`}
               sizes="(max-width: 700px) 92vw, 94vw"
               alt={heroOption.alt}
               fetchPriority="high"
@@ -623,4 +617,3 @@ export default function App() {
     </>
   )
 }
-

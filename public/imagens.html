@@ -19,6 +19,7 @@
       <button class="photo" data-photo="mar" aria-pressed="false"><img src="./images/rio-mar-800.webp" alt="Barcos e montanhas na Baía de Guanabara"><span>02 · Rio visto da água<small>Céu azul, barcos e um horizonte aberto.</small></span></button>
       <button class="photo" data-photo="entardecer" aria-pressed="false"><img src="./images/rio-entardecer-800.webp" alt="Barcos na baía ao pôr do sol"><span>03 · Fim de tarde na baía<small>Minha sugestão: luz quente e clima de passeio.</small></span></button>
       <button class="photo" data-photo="oceano" aria-pressed="false"><img src="./images/ocean-800.webp" alt="Ondas e areia vistas de cima"><span>04 · Um mergulho no azul<small>Mar e textura. Fotografia ilustrativa.</small></span></button>
+      <button class="photo" data-photo="vegas" aria-pressed="false"><img src="./images/vegas-reference.jpg" alt="Lancha Vegas 36 pés, referência da Start Náutica"><span>05 · Lancha Vegas no Rio<small>A foto que você enviou · Start Náutica.</small></span></button>
     </div>
     <div class="settings">
       <div class="fit" aria-label="Enquadramento"><button data-fit="inteira" aria-pressed="true">Foto inteira</button><button data-fit="preencher" aria-pressed="false">Preencher o espaço</button></div>
@@ -26,7 +27,8 @@
     </div>
     <p id="status" role="status">Prévia: 01 · Foto inteira</p>
     <div class="preview"><iframe title="Foto de abertura no site em tamanho de celular" src="./?foto=atual&amp;enquadramento=inteira#foto-abertura"></iframe></div>
-    <details><summary>Sobre as fotografias e esta comparação</summary>As opções são ilustrativas e não representam registros de passeios da Viva La Vida. A escolha nesta página é uma prévia; a abertura padrão do site continua como está. Fotos de banco Unsplash.
+    <details><summary>Sobre as fotografias e esta comparação</summary>As opções são ilustrativas e não representam registros de passeios da Viva La Vida. A escolha nesta página é uma prévia; a abertura padrão do site continua como está. Opções 01 a 04: Unsplash. Opção 05: fotografia da Start Náutica, mantida com sua marca d’água, para referência visual.
+      <div><a href="https://startnautica.com.br/embarcacoes/lancha-vegas-36-pes/" target="_blank" rel="noopener">Lancha Vegas · fonte Start Náutica</a></div>
       <div><a href="https://unsplash.com/photos/J6Tx67zdyu8" target="_blank" rel="noopener">Rio visto da água · Marcos Paulo Prado</a><a href="https://unsplash.com/photos/tavdin66SsE" target="_blank" rel="noopener">Fim de tarde · Pedro Gandra</a></div>
     </details>
   </main>
@@ -43,6 +45,8 @@
     document.querySelectorAll('[data-photo]').forEach(button=>button.addEventListener('click',()=>{photo=button.dataset.photo;update()}));
     document.querySelectorAll('[data-fit]').forEach(button=>button.addEventListener('click',()=>{fit=button.dataset.fit;update()}));
     frame.addEventListener('load',()=>{frame.contentDocument?.getElementById('foto-abertura')?.scrollIntoView({behavior:'instant',block:'start'})});
+    const requestedPhoto=new URLSearchParams(location.search).get('foto');
+    if(['atual','mar','entardecer','oceano','vegas'].includes(requestedPhoto)){photo=requestedPhoto;update()}
   </script>
 </body>
 </html>

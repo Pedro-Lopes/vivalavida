@@ -62,3 +62,10 @@ São imagens ilustrativas; a embarcação da fotografia não representa a lancha
 - `rio-entardecer-800.webp` e `rio-entardecer-1600.webp`: Pedro Gandra, https://unsplash.com/photos/tavdin66SsE — fonte https://images.unsplash.com/photo-1749086876868-f0e82fec562e
 
 Ambas as páginas indicam uso gratuito sob a licença Unsplash. As variantes preservam a proporção original, em WebP. A opção de oceano reutiliza a fotografia ilustrativa já creditada acima.
+
+## Referência solicitada: Lancha Vegas
+
+- Arquivo: `public/images/vegas-reference.jpg`.
+- Fonte: https://startnautica.com.br/embarcacoes/lancha-vegas-36-pes/
+- Imagem original: https://startnautica.com.br/wp-content/uploads/2023/06/lancha-vegas-36-pes-1.jpg
+- Fotografia da Start Náutica, incluída como referência na opção 05 da comparação a pedido do proprietário. Não é uma foto da embarcação Viva La Vida nem uma imagem da coleção Unsplash. Marca d’água preservada: tentativa de edição pela ferramenta integrada não foi realizada devido ao limite de uso.
