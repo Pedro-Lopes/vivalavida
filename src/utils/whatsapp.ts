@@ -5,13 +5,13 @@ export const whatsappMessages = {
   general:
     'Olá! Conheci a Viva La Vida pelo portfólio e gostaria de receber mais informações sobre os passeios de lancha.',
   routeMain:
-    'Olá! Gostaria de consultar disponibilidade para o Roteiro Entre Niterói e o Rio — Viva La Vida.',
+    'Olá! Gostaria de consultar disponibilidade para o Roteiro principal — Jurujuba, Praia Vermelha ou Urca — Viva La Vida.',
   routeRio:
-    'Olá! Gostaria de consultar disponibilidade para o Roteiro a partir do Rio de Janeiro — Viva La Vida.',
+    'Olá! Gostaria de consultar disponibilidade para o roteiro Rio visto da água — Viva La Vida.',
   routeIslands:
-    'Olá! Gostaria de consultar disponibilidade para o Roteiro Ilhas e Mar Aberto — Viva La Vida.',
+    'Olá! Gostaria de consultar disponibilidade para o roteiro Ilhas e mar aberto — pacotes a combinar — Viva La Vida.',
   routeBeaches:
-    'Olá! Gostaria de consultar disponibilidade para o Roteiro Praias de Niterói — Viva La Vida.',
+    'Olá! Gostaria de consultar disponibilidade para o roteiro Praias de Niterói — pacotes a combinar — Viva La Vida.',
   planEssential:
     'Olá! Gostaria de consultar disponibilidade para o passeio Viva La Vida, na opção Essencial.',
   planBBQ:

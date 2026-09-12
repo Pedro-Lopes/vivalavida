@@ -330,6 +330,32 @@ h2 {
   inset: 0;
   animation: photo-enter 0.7s ease-out;
 }
+.route-carousel {
+  position: absolute;
+  right: 20px;
+  bottom: 19px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: rgba(12, 25, 30, 0.46);
+  backdrop-filter: blur(4px);
+}
+.route-carousel button {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.42);
+  transition:
+    width 0.2s ease,
+    background 0.2s ease;
+}
+.route-carousel button[aria-current='true'] {
+  width: 24px;
+  border-radius: 999px;
+  background: white;
+}
 .image-tag {
   position: absolute;
   left: 22px;
@@ -992,6 +1018,10 @@ h2 {
   }
   .route-photo {
     min-height: 285px;
+  }
+  .route-carousel {
+    right: 16px;
+    bottom: 16px;
   }
   .route-copy {
     padding: 26px;

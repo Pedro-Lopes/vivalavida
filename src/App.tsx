@@ -49,12 +49,14 @@ const navigation = [
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [routeIndex, setRouteIndex] = useState(0)
+  const [routePhotoIndex, setRoutePhotoIndex] = useState(0)
   const [planIndex, setPlanIndex] = useState(0)
   const [date, setDate] = useState('')
   const [guests, setGuests] = useState('')
   const [contactNotice, setContactNotice] = useState(false)
   const [showMobileBooking, setShowMobileBooking] = useState(false)
   const route = routes[routeIndex]
+  const routePhoto = route.images[routePhotoIndex] ?? route.images[0]
   const plan = plans[planIndex]
   const today = new Date()
   const minDate = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`
@@ -66,6 +68,18 @@ export default function App() {
     })
     return () => cancelAnimationFrame(frame)
   }, [])
+
+  useEffect(() => {
+    setRoutePhotoIndex(0)
+  }, [routeIndex])
+
+  useEffect(() => {
+    if (route.images.length < 2) return
+    const interval = window.setInterval(() => {
+      setRoutePhotoIndex((current) => (current + 1) % route.images.length)
+    }, 4200)
+    return () => window.clearInterval(interval)
+  }, [route.id, route.images.length])
 
   useEffect(() => {
     let pastHero = false
@@ -300,22 +314,24 @@ export default function App() {
           >
             <div className="route-photo">
               <img
-                key={route.id}
-                src={
-                  [photos.hero, photos.coast, photos.ocean, photos.coast][
-                    routeIndex
-                  ]
-                }
-                alt={route.imageAlt}
-                srcSet={imageSet(
-                  [photos.hero, photos.coast, photos.ocean, photos.coast][
-                    routeIndex
-                  ],
-                )}
+                key={`${route.id}-${routePhotoIndex}`}
+                src={routePhoto.src}
+                alt={routePhoto.alt}
                 sizes="(max-width: 700px) 88vw, 48vw"
                 loading="lazy"
               />
               <span className="image-tag">{route.subtitle}</span>
+              <div className="route-carousel" aria-label="Fotos do roteiro">
+                {route.images.map((image, index) => (
+                  <button
+                    key={image.src}
+                    type="button"
+                    aria-label={`Ver foto ${index + 1} de ${route.title}`}
+                    aria-current={routePhotoIndex === index}
+                    onClick={() => setRoutePhotoIndex(index)}
+                  />
+                ))}
+              </div>
             </div>
             <div className="route-copy">
               <Compass size={31} strokeWidth={1} />

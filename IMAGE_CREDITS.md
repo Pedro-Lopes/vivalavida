@@ -63,6 +63,20 @@ São imagens ilustrativas; a embarcação da fotografia não representa a lancha
 
 Ambas as páginas indicam uso gratuito sob a licença Unsplash. As variantes preservam a proporção original, em WebP. A opção de oceano reutiliza a fotografia ilustrativa já creditada acima.
 
+## Carrossel dos roteiros
+
+As fotos do carrossel da seção "Escolha o seu horizonte" são imagens remotas do Unsplash, usadas como apoio visual temporário:
+
+- https://images.unsplash.com/photo-1483729558449-99ef09a8c325
+- https://images.unsplash.com/photo-1583123483628-cdb29790ead8
+- https://images.unsplash.com/photo-1749086876868-f0e82fec562e
+- https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f
+- https://images.unsplash.com/photo-1559827260-dc66d52bef19
+- https://images.unsplash.com/photo-1507525428034-b723cf961d3e
+- https://images.unsplash.com/photo-1505118380757-91f5f5632de0
+- https://images.unsplash.com/photo-1506905925346-21bda4d32df4
+- https://images.unsplash.com/photo-1518638150340-f706e86654de
+
 ## Referência solicitada: Lancha Vegas
 
 - Arquivo original: `public/images/vegas-reference.jpg`.

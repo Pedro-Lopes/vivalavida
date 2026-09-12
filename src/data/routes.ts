@@ -2,6 +2,11 @@
 // DADOS DOS ROTEIROS — edite aqui para atualizar o conteúdo
 // ============================================================
 
+export interface RouteImage {
+  src: string
+  alt: string
+}
+
 export interface Route {
   id: string
   title: string
@@ -9,6 +14,7 @@ export interface Route {
   description: string
   stops: string[]
   image: string
+  images: RouteImage[]
   imageAlt: string
   note?: string
   whatsappKey: 'routeMain' | 'routeRio' | 'routeIslands' | 'routeBeaches'
@@ -17,36 +23,62 @@ export interface Route {
 export const routes: Route[] = [
   {
     id: 'niteroirio',
-    title: 'Entre Niterói e o Rio',
-    subtitle: 'Roteiro Principal',
+    title: 'Roteiro principal',
+    subtitle: 'Jurujuba, Praia Vermelha ou Urca',
     description:
-      'Um percurso que reúne paisagens de Niterói, a entrada da Baía de Guanabara e alguns dos cenários mais conhecidos do Rio de Janeiro — vistos de onde poucos chegam: o mar.',
+      'O roteiro mais clássico para viver o Rio pelo mar, saindo de Jurujuba e navegando por cartões-postais como Praia Vermelha ou Urca até a Ponta do Morcego.',
     stops: ['Jurujuba', 'Praia Vermelha', 'Urca', 'Ponta do Morcego'],
-    // TODO: Substituir pela foto do roteiro em src/assets/images/destinations/route-niteroirio.jpg
     image:
       'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1400&q=80',
+    images: [
+      {
+        src: 'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1400&q=80',
+        alt: 'Baía de Guanabara com o Pão de Açúcar ao fundo',
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1583123483628-cdb29790ead8?auto=format&fit=crop&w=1400&q=80',
+        alt: 'Pão de Açúcar e Morro da Urca vistos da Baía de Guanabara',
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1749086876868-f0e82fec562e?auto=format&fit=crop&w=1400&q=80',
+        alt: 'Barcos na Baía de Guanabara ao pôr do sol',
+      },
+    ],
     imageAlt: 'Vista da Baía de Guanabara com o Pão de Açúcar ao fundo',
     whatsappKey: 'routeMain',
   },
   {
     id: 'rio',
-    title: 'Para quem embarca no Rio',
-    subtitle: 'A partir da Urca',
+    title: 'Rio visto da água',
+    subtitle: 'Praia Vermelha e Urca',
     description:
-      'Uma experiência que conecta o Rio de Janeiro e Niterói pelo mar, passando por paisagens emblemáticas da Baía de Guanabara e chegando às praias tranquilas de Jurujuba.',
-    stops: ['Urca', 'Praia Vermelha', 'Jurujuba', 'Retorno pela Baía'],
-    // TODO: Substituir pela foto do roteiro em src/assets/images/destinations/route-rio.jpg
+      'Uma navegação curta, bonita e cheia de cenário para quem quer sentir o Rio de outro ângulo, com a cidade acompanhando o passeio o tempo todo.',
+    stops: ['Praia Vermelha', 'Urca', 'Pão de Açúcar', 'Baía de Guanabara'],
     image:
       'https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f?auto=format&fit=crop&w=1400&q=80',
+    images: [
+      {
+        src: 'https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f?auto=format&fit=crop&w=1400&q=80',
+        alt: 'Rio de Janeiro com montanhas e praia vistos do alto',
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1400&q=80',
+        alt: 'Pão de Açúcar e Baía de Guanabara',
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1583123483628-cdb29790ead8?auto=format&fit=crop&w=1400&q=80',
+        alt: 'Barcos próximos ao Pão de Açúcar',
+      },
+    ],
     imageAlt: 'Urca e Praia Vermelha vistas do mar',
     whatsappKey: 'routeRio',
   },
   {
     id: 'ilhas',
-    title: 'Ilhas e Mar Aberto',
-    subtitle: 'Roteiro de Exploração',
+    title: 'Ilhas e mar aberto',
+    subtitle: 'Pacotes a combinar',
     description:
-      'Para quem deseja explorar águas mais abertas, ilhas e paisagens naturais. O roteiro é definido conforme o pacote contratado e as condições de navegação do dia.',
+      'Para quem quer um passeio com clima de exploração: ilhas, horizonte aberto e paradas combinadas de acordo com o pacote, o mar e o melhor horário do dia.',
     stops: [
       'Ilhas Tijucas',
       'Ilhas Cagarras',
@@ -55,25 +87,51 @@ export const routes: Route[] = [
       'Ilhas Maricás',
       'Itaipu',
     ],
-    // TODO: Substituir pela foto do roteiro em src/assets/images/destinations/route-islands.jpg
     image:
       'https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1400&q=80',
+    images: [
+      {
+        src: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1400&q=80',
+        alt: 'Ilhas e mar aberto com águas claras',
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80',
+        alt: 'Mar azul com ondas e horizonte aberto',
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&w=1400&q=80',
+        alt: 'Vista aérea de água azul e faixa de areia',
+      },
+    ],
     imageAlt: 'Ilhas e mar aberto com águas cristalinas',
-    note: 'Destinos sujeitos às condições do mar e ao pacote contratado.',
+    note: 'Pacotes a combinar. Destinos sujeitos às condições do mar e ao pacote contratado.',
     whatsappKey: 'routeIslands',
   },
   {
     id: 'praias',
     title: 'Praias de Niterói',
-    subtitle: 'Região Oceânica',
+    subtitle: 'Pacotes a combinar',
     description:
-      'Um passeio pelas praias e paisagens da Região Oceânica de Niterói. Pacotes e paradas definidos de acordo com a experiência escolhida e as condições do dia.',
+      'Um roteiro para curtir as praias de Niterói com tempo para contemplar, mergulhar e combinar paradas conforme a proposta do passeio.',
     stops: ['Itaipu', 'Piratininga', 'Forte do Rio Branco', 'Imbuí'],
-    // TODO: Substituir pela foto do roteiro em src/assets/images/destinations/route-beaches.jpg
     image:
       'https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&w=1400&q=80',
+    images: [
+      {
+        src: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&w=1400&q=80',
+        alt: 'Praia com mar azul vista de cima',
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1400&q=80',
+        alt: 'Litoral com montanhas e água clara',
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=1400&q=80',
+        alt: 'Costa com mar e vegetação',
+      },
+    ],
     imageAlt: 'Praias da Região Oceânica de Niterói',
-    note: 'Destinos sujeitos às condições do mar e ao pacote contratado.',
+    note: 'Pacotes a combinar. Destinos sujeitos às condições do mar e ao pacote contratado.',
     whatsappKey: 'routeBeaches',
   },
 ]
