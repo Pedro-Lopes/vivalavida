@@ -604,8 +604,10 @@ export default function App() {
           rel="noopener noreferrer"
           aria-label="Conversar pelo WhatsApp"
         >
-          <WhatsAppIcon />
-          <span>WhatsApp</span>
+          <span>Fale conosco no WhatsApp!</span>
+          <span className="whatsapp-float-icon">
+            <WhatsAppIcon />
+          </span>
         </a>
       )}
       <footer className="site-footer">
