@@ -1160,8 +1160,11 @@ h2 {
   transform: translateY(-2px);
   box-shadow: 0 22px 42px rgba(0, 0, 0, 0.26);
 }
-.whatsapp-float svg {
-  stroke-width: 2.2;
+.whatsapp-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  flex: 0 0 auto;
 }
 .interlude {
   background: #203b40;
