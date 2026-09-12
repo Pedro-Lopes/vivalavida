@@ -15,7 +15,7 @@ import {
 import { routes } from './data/routes'
 import { plans } from './data/plans'
 import { faqItems } from './data/faq'
-import { getWhatsAppUrlWithText } from './utils/whatsapp'
+import { getWhatsAppUrl, getWhatsAppUrlWithText } from './utils/whatsapp'
 import { siteConfig } from './config/site'
 import './App.css'
 
@@ -54,7 +54,6 @@ export default function App() {
   const [date, setDate] = useState('')
   const [guests, setGuests] = useState('')
   const [contactNotice, setContactNotice] = useState(false)
-  const [showMobileBooking, setShowMobileBooking] = useState(false)
   const route = routes[routeIndex]
   const routePhoto = route.images[routePhotoIndex] ?? route.images[0]
   const plan = plans[planIndex]
@@ -80,26 +79,6 @@ export default function App() {
     }, 4200)
     return () => window.clearInterval(interval)
   }, [route.id, route.images.length])
-
-  useEffect(() => {
-    let pastHero = false
-    let nearBooking = false
-    let nearFooter = false
-    const observer = new IntersectionObserver((entries) => {
-      for (const entry of entries) {
-        if (entry.target.id === 'inicio')
-          pastHero =
-            !entry.isIntersecting && entry.boundingClientRect.bottom < 0
-        if (entry.target.id === 'contato') nearBooking = entry.isIntersecting
-        if (entry.target.tagName === 'FOOTER') nearFooter = entry.isIntersecting
-      }
-      setShowMobileBooking(pastHero && !nearBooking && !nearFooter)
-    })
-    document
-      .querySelectorAll('#inicio, #contato, .site-footer')
-      .forEach((element) => observer.observe(element))
-    return () => observer.disconnect()
-  }, [])
 
   useEffect(() => {
     const close = (event: KeyboardEvent) => {
@@ -604,12 +583,17 @@ export default function App() {
           </div>
         </section>
       </main>
-      {showMobileBooking && !menuOpen && (
-        <div className="mobile-booking">
-          <a className="pill" href="#contato">
-            Planejar meu passeio <ArrowUpRight size={20} />
-          </a>
-        </div>
+      {!menuOpen && (
+        <a
+          className="whatsapp-float"
+          href={getWhatsAppUrl('reserve')}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Conversar pelo WhatsApp"
+        >
+          <MessageCircle size={22} />
+          <span>WhatsApp</span>
+        </a>
       )}
       <footer className="site-footer">
         <div className="footer-top">

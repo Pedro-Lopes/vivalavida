@@ -8,8 +8,8 @@ export const siteConfig = {
   description:
     'Passeios de lancha entre o Rio de Janeiro e Niterói, com roteiros personalizados, paisagens inesquecíveis e experiências para compartilhar.',
 
-  // TODO: Substituir pelo número real (formato: 55 + DDD + número, sem espaços ou traços)
-  whatsappNumber: '5521000000000',
+  // Formato: 55 + DDD + número, sem espaços ou traços
+  whatsappNumber: '5521983839914',
 
   // TODO: Substituir pelo @ real do Instagram
   instagram: '@vivalavida',
