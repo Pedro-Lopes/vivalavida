@@ -1130,6 +1130,36 @@ h2 {
     font-size: 16px;
     min-height: 48px;
   }
+  .hero-header {
+    display: block;
+    padding: 30px 2% 34px;
+  }
+  .hero-copy {
+    width: 100%;
+  }
+  .hero-subtitle {
+    max-width: 11.5em;
+    margin-bottom: 18px;
+    font-size: 21px;
+    line-height: 0.96;
+  }
+  .hero-header h1 {
+    max-width: 7.2em;
+    margin-top: 16px;
+    font-size: clamp(42px, 13vw, 54px);
+    line-height: 0.94;
+    letter-spacing: -2.5px;
+  }
+  .hero-header em {
+    letter-spacing: -0.06em;
+  }
+  .hero-link {
+    width: 100%;
+    justify-content: space-between;
+    margin: 26px 0 0;
+    padding-bottom: 12px;
+    font-size: 14px;
+  }
   .hero-heading {
     padding-top: 28px;
   }
@@ -1178,6 +1208,29 @@ h2 {
   }
   .photo-location {
     font-size: 9px;
+  }
+  .photo-caption {
+    left: 18px;
+    bottom: 18px;
+    max-width: 230px;
+    font-size: clamp(25px, 7.2vw, 31px);
+    line-height: 0.94;
+    letter-spacing: -0.8px;
+  }
+  .photo-caption em {
+    font-size: clamp(29px, 8vw, 35px);
+  }
+  .hero-photo-vegas .photo-caption {
+    bottom: 14px;
+    max-width: 210px;
+    font-size: clamp(23px, 6.8vw, 28px);
+  }
+  .hero-photo-vegas .photo-caption em {
+    font-size: clamp(27px, 7.6vw, 32px);
+  }
+  .hero-photo-vegas .round-explore {
+    right: 18px;
+    bottom: 18px;
   }
   .hero-strip {
     font-size: 9px;

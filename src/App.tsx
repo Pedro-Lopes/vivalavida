@@ -169,7 +169,9 @@ export default function App() {
                 <span className="live-dot" /> MENOS ROTINA. MAIS HORIZONTE.
               </p>
               <h1>
-                mais bonito <em>do mar:</em>
+                O Rio fica ainda
+                <br />
+                mais bonito <em>do mar.</em>
               </h1>
             </div>
             <a className="hero-link" href="#roteiros">
