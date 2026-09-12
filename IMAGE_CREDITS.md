@@ -65,7 +65,8 @@ Ambas as páginas indicam uso gratuito sob a licença Unsplash. As variantes pre
 
 ## Referência solicitada: Lancha Vegas
 
-- Arquivo: `public/images/vegas-reference.jpg`.
+- Arquivo original: `public/images/vegas-reference.jpg`.
+- Arquivo usado no site: `public/images/vegas-clean.png`.
 - Fonte: https://startnautica.com.br/embarcacoes/lancha-vegas-36-pes/
 - Imagem original: https://startnautica.com.br/wp-content/uploads/2023/06/lancha-vegas-36-pes-1.jpg
-- Fotografia da Start Náutica, incluída como referência na opção 05 da comparação a pedido do proprietário. Não é uma foto da embarcação Viva La Vida nem uma imagem da coleção Unsplash. Marca d’água preservada: tentativa de edição pela ferramenta integrada não foi realizada devido ao limite de uso.
+- Fotografia enviada pelo proprietário, incluída como opção 05 da comparação e como abertura principal. A versão usada no site foi editada com a ferramenta integrada de imagem para remover a marca d'água.

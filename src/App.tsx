@@ -32,14 +32,14 @@ const heroOptions = {
   mar: { image: 'rio-mar', alt: 'Pão de Açúcar e Morro da Urca com barcos na Baía de Guanabara', location: 'RIO DE JANEIRO, BRASIL' },
   entardecer: { image: 'rio-entardecer', alt: 'Barcos na Baía de Guanabara ao pôr do sol, com o Corcovado ao fundo', location: 'BAÍA DE GUANABARA, RIO' },
   oceano: { image: 'ocean', alt: 'Vista aérea das ondas chegando à areia de uma praia, imagem ilustrativa', location: 'O MAR TE ESPERA · IMAGEM ILUSTRATIVA' },
-  vegas: { image: 'vegas-reference', alt: 'Lancha Vegas 36 pés na Baía de Guanabara, foto de referência da Start Náutica', location: 'REFERÊNCIA · START NÁUTICA' },
+  vegas: { image: 'vegas-clean', alt: 'Lancha branca na Baía de Guanabara com o Rio de Janeiro ao fundo', location: 'RIO DE JANEIRO, BRASIL' },
 }
 const imageParams = new URLSearchParams(window.location.search)
 const requestedPhoto = imageParams.get('foto')
 const heroOption = heroOptions[requestedPhoto && Object.hasOwn(heroOptions, requestedPhoto) ? requestedPhoto as keyof typeof heroOptions : 'vegas']
 const heroSource = `${import.meta.env.BASE_URL}images/${heroOption.image}`
 const wholeHero = imageParams.get('enquadramento') === 'inteira'
-const isVegasHero = heroOption.image === 'vegas-reference'
+const isVegasHero = heroOption.image === 'vegas-clean'
 const navigation = [
   ['A experiência', '#experiencia'],
   ['Roteiros', '#roteiros'],
@@ -178,7 +178,7 @@ export default function App() {
           </div>
           <div className={`hero-photo${wholeHero ? ' hero-photo-whole' : ''}${isVegasHero ? ' hero-photo-vegas' : ''}`} id="foto-abertura">
             <img
-              src={isVegasHero ? `${heroSource}.jpg` : `${heroSource}-1600.webp`}
+              src={isVegasHero ? `${heroSource}.png` : `${heroSource}-1600.webp`}
               srcSet={isVegasHero ? undefined : `${heroSource}-800.webp 800w, ${heroSource}-1600.webp 1600w`}
               sizes="(max-width: 700px) 92vw, 94vw"
               alt={heroOption.alt}
