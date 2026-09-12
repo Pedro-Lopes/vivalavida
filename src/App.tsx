@@ -624,7 +624,6 @@ export default function App() {
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} Viva La Vida</span>
           <span>Rio de Janeiro & Niterói, Brasil</span>
-          <span>Fotografias ilustrativas.</span>
           <a href="#inicio">
             Voltar ao topo <ArrowRight size={14} className="up-arrow" />
           </a>
